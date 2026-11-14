@@ -173,5 +173,4 @@ Autor:
 
   Dennis Rodrigues
 
-Observações
 O objetivo deste projeto não foi apenas construir uma dashboard visual, mas demonstrar a utilização de IA Generativa em conjunto com processos de tratamento de dados e análise de negócio para criação de uma solução de Business Intelligence orientada a tomada de decisão.
