@@ -2,35 +2,54 @@
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Porsche | Sales Intelligence</title>
 <style>
-:root{--bg:#f4f3f0;--ink:#171717;--muted:#77746f;--line:#dedbd5;--red:#c8102e;--panel:#fff;--soft:#ebe9e4}
+:root{--bg:#202225;--ink:#f2f2f0;--muted:#a7a9ad;--line:#3b3e42;--red:#d5001c;--panel:#292c30;--soft:#41454a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-header{background:#111;color:#fff;padding:25px clamp(20px,5vw,72px) 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red)}
+header{background:#181a1d;color:#f5f5f3;padding:25px clamp(20px,5vw,72px) 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--red);box-shadow:0 8px 24px rgba(0,0,0,.16)}
 .brand{font-size:21px;letter-spacing:5px;font-weight:700}.brand small{display:block;font-size:9px;letter-spacing:3px;color:#aaa;margin-top:7px;font-weight:400}
 .headnote{font-size:10px;letter-spacing:2px;color:#aaa;text-transform:uppercase}
 main{max-width:1500px;margin:auto;padding:34px clamp(18px,4vw,60px) 60px}
 .eyebrow{font-size:10px;letter-spacing:2.4px;color:var(--red);font-weight:bold;text-transform:uppercase}
 h1{font-size:clamp(27px,4vw,43px);font-weight:400;letter-spacing:-1.5px;margin:9px 0 8px}
 .sub{color:var(--muted);font-size:13px;margin:0 0 28px}
-.filters{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr)) auto;gap:12px;background:var(--panel);padding:17px;border:1px solid var(--line);margin-bottom:20px}
+.filters{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr)) auto;gap:12px;background:var(--panel);padding:17px;border:1px solid var(--line);margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.10)}
 label{display:block;color:var(--muted);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
-select,button{width:100%;height:40px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:0 10px;font-size:12px;border-radius:0}
-button{background:#171717;color:white;border-color:#171717;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-size:10px}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 20px}
-.kpi,.panel{background:var(--panel);border:1px solid var(--line)}
+select,button{width:100%;height:40px;border:1px solid var(--line);background:#222529;color:var(--ink);padding:0 10px;font-size:12px;border-radius:0}
+button{background:#a90d25;color:#fff;border-color:#a90d25;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-size:10px;transition:background .2s ease}button:hover{background:#c8102e}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0 0 20px}
+.kpi,.panel{background:var(--panel);border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.10)}
 .kpi{padding:20px 21px;min-height:112px}.kpi .name{font-size:9px;letter-spacing:1.6px;color:var(--muted);text-transform:uppercase}
 .kpi .value{font-size:29px;letter-spacing:-1px;margin-top:12px}.kpi .foot{font-size:10px;color:var(--muted);margin-top:5px}
 .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px}
 .panel{padding:22px;min-width:0}.panel.wide{grid-column:1/-1}
 .panelhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
 h2{font-size:15px;font-weight:500;margin:0 0 5px}.desc{font-size:11px;color:var(--muted);margin:0}
-.tag{font-size:9px;letter-spacing:1px;color:var(--red);border:1px solid #e8c5cb;padding:6px 8px;white-space:nowrap}
-.bars{display:flex;flex-direction:column;gap:13px}.barrow{display:grid;grid-template-columns:minmax(90px,1.1fr) 3fr 35px;gap:12px;align-items:center;font-size:11px}.barlabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track{height:7px;background:var(--soft)}.fill{height:100%;background:#202020}.fill.red{background:var(--red)}.barval{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{font-size:9px;letter-spacing:1px;color:#f06b7d;border:1px solid #71313c;padding:6px 8px;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:13px}.barrow{display:grid;grid-template-columns:minmax(90px,1.1fr) 3fr 35px;gap:12px;align-items:center;font-size:11px}
+.revenue-row{grid-template-columns:minmax(72px,1fr) minmax(40px,2fr) 82px;gap:8px}.revenue-row .barval{white-space:nowrap;font-size:10px;overflow:hidden;text-overflow:clip}.barlabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track{height:7px;background:var(--soft)}.fill{height:100%;background:#aeb2b7}.fill.red{background:var(--red)}.barval{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
 .insight{border-left:2px solid var(--red);padding:2px 0 2px 13px;margin:0 0 15px}.insight strong{font-size:13px;font-weight:600;display:block;margin-bottom:5px}.insight span{font-size:11px;color:var(--muted);line-height:1.5}
-.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:11px}th{text-align:left;color:var(--muted);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500;padding:11px 9px;border-bottom:1px solid var(--line)}td{padding:12px 9px;border-bottom:1px solid #efede9}tbody tr:last-child td{border-bottom:0}.rank{color:var(--red);font-size:10px}
+.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:11px}th{text-align:left;color:var(--muted);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500;padding:11px 9px;border-bottom:1px solid var(--line)}td{padding:12px 9px;border-bottom:1px solid #383b40}tbody tr:last-child td{border-bottom:0}.rank{color:var(--red);font-size:10px}
 .footnote{font-size:10px;color:var(--muted);line-height:1.6;margin-top:18px;border-top:1px solid var(--line);padding-top:13px}
 .empty{font-size:12px;color:var(--muted);padding:20px 0}
-@media(max-width:900px){.filters{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
-@media(max-width:520px){.filters{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.kpi{padding:15px}.kpi .value{font-size:23px}.headnote{display:none}.barrow{grid-template-columns:90px 1fr 28px}}
+/* Ticket médio: barras verticais */
+.ticket-chart{display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;height:270px;min-width:0}
+.ticket-yaxis{display:flex;flex-direction:column;justify-content:space-between;padding:2px 0 30px;color:var(--muted);font-size:9px;text-align:right;font-variant-numeric:tabular-nums}
+.ticket-plot{position:relative;display:flex;align-items:stretch;min-width:0;padding:0 4px 0 0;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(25% - 1px),var(--line) calc(25% - 1px),var(--line) 25%)}
+.ticket-columns{display:flex;align-items:stretch;justify-content:space-around;gap:8px;width:100%;height:100%;min-width:0}
+.ticket-col{display:flex;flex:1;min-width:0;max-width:76px;flex-direction:column;align-items:center;justify-content:flex-end;position:relative}
+.ticket-value{font-size:9px;color:var(--ink);white-space:nowrap;margin-bottom:5px;font-variant-numeric:tabular-nums}
+.ticket-bar{width:min(70%,42px);min-height:2px;background:#aeb2b7;position:relative}
+.ticket-col:first-child .ticket-bar{background:var(--red)}
+.ticket-label{position:absolute;top:calc(100% + 9px);width:100%;text-align:center;font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Donut de participação */
+.payment-layout{display:grid;grid-template-columns:minmax(130px,.85fr) minmax(0,1.15fr);gap:22px;align-items:center;min-height:220px}
+.donut-wrap{display:flex;align-items:center;justify-content:center;min-width:0}
+.payment-donut{width:min(190px,100%);aspect-ratio:1;border-radius:50%;position:relative;display:grid;place-items:center}
+.payment-donut:after{content:"";position:absolute;width:58%;height:58%;border-radius:50%;background:var(--panel);border:1px solid var(--line)}
+.donut-center{position:relative;z-index:1;text-align:center}.donut-center strong{display:block;font-size:21px;font-weight:500}.donut-center span{display:block;color:var(--muted);font-size:8px;letter-spacing:1.3px;margin-top:4px}
+.payment-legend{display:flex;flex-direction:column;gap:11px;min-width:0}.payment-legend-item{display:grid;grid-template-columns:9px minmax(0,1fr) auto;gap:9px;align-items:center;font-size:10px}.payment-swatch{width:8px;height:8px;border-radius:50%}.payment-name{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.payment-percent{color:var(--ink);font-variant-numeric:tabular-nums}.payment-legend-item.leader .payment-name,.payment-legend-item.leader .payment-percent{color:#fff;font-weight:700}
+@media(max-width:600px){.ticket-chart{grid-template-columns:48px minmax(0,1fr);gap:7px;height:250px}.ticket-value{font-size:8px}.ticket-columns{gap:4px}.ticket-label{font-size:8px}.payment-layout{grid-template-columns:1fr;gap:18px}.payment-donut{width:155px}.payment-legend{gap:9px}}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:900px){.filters{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+@media(max-width:520px){.filters{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.kpi{padding:15px}.kpi .value{font-size:23px}.headnote{display:none}.barrow{grid-template-columns:90px 1fr 48px}.revenue-row{grid-template-columns:minmax(65px,1fr) minmax(25px,1.5fr) 76px;gap:6px}}
 </style></head><body>
 <header><div class="brand">PORSCHE<small>SALES INTELLIGENCE</small></div><div class="headnote">Business performance · Brazil edition</div></header>
 <main>
@@ -47,12 +66,14 @@ h2{font-size:15px;font-weight:500;margin:0 0 5px}.desc{font-size:11px;color:var(
 <div class="kpi"><div class="name">Receita total</div><div class="value" id="revenue">—</div><div class="foot">Soma dos valores de venda</div></div>
 <div class="kpi"><div class="name">Ticket médio</div><div class="value" id="ticket">—</div><div class="foot">Receita por unidade</div></div>
 <div class="kpi"><div class="name">Model year líder</div><div class="value" id="leaderYear">—</div><div class="foot" id="leaderYearSub">Ano com maior volume</div></div>
+<div class="kpi"><div class="name">Cidade líder em receita</div><div class="value" id="leaderCity" style="font-size:22px">—</div><div class="foot" id="leaderCityRevenue">Receita total da cidade</div></div>
 </section>
 <section class="grid">
 <div class="panel"><div class="panelhead"><div><h2>Modelos mais vendidos</h2><p class="desc">Ranking de unidades no recorte selecionado</p></div><span class="tag">TOP MODELS</span></div><div id="models" class="bars"></div></div>
-<div class="panel"><div class="panelhead"><div><h2>Vendas por model year</h2><p class="desc">Distribuição dos anos dos veículos</p></div><span class="tag">MODEL YEAR</span></div><div id="years" class="bars"></div></div>
+<div class="panel"><div class="panelhead"><div><h2>TICKET MÉDIO POR MODELO</h2><p class="desc">Valor médio de venda por modelo</p></div><span class="tag">AVG TICKET</span></div><div id="ticketByModel"></div></div>
 <div class="panel"><div class="panelhead"><div><h2>Volume por cidade</h2><p class="desc">Mercados com maior número de unidades</p></div><span class="tag">GEOGRAFIA</span></div><div id="cities" class="bars"></div></div>
-<div class="panel"><div class="panelhead"><div><h2>Formas de pagamento</h2><p class="desc">Participação por método informado</p></div><span class="tag">PAYMENT MIX</span></div><div id="payments" class="bars"></div></div>
+<div class="panel"><div class="panelhead"><div><h2>Participação das Formas de Pagamento</h2><p class="desc">Distribuição percentual dos métodos de pagamento</p></div><span class="tag">PAYMENT SHARE</span></div><div id="payments"></div></div>
+<div class="panel"><div class="panelhead"><div><h2>Quais cidades geram o maior faturamento?</h2><p class="desc">Ranking das 10 cidades com maior receita</p></div><span class="tag">REVENUE BY CITY</span></div><div id="cityRevenue" class="bars"></div></div>
 <div class="panel wide"><div class="panelhead"><div><h2>Preferência de modelos por cidade</h2><p class="desc">Combinações cidade × modelo com maior frequência</p></div><span class="tag">CITY INSIGHTS</span></div><div class="tablewrap"><table><thead><tr><th>#</th><th>Cidade</th><th>Modelo mais recorrente</th><th>Unidades</th><th>Participação local</th></tr></thead><tbody id="cityTable"></tbody></table></div></div>
 <div class="panel wide"><div class="panelhead"><div><h2>Leitura de negócio</h2><p class="desc">Insights gerados automaticamente a partir dos filtros</p></div><span class="tag">KEY TAKEAWAYS</span></div><div id="insights"></div></div>
 </section>
@@ -66,12 +87,18 @@ const uniq=k=>[...new Set(DATA.map(d=>d[k]).filter(v=>v!==null&&v!==''))].sort((
 function fillSelect(id,key){const s=document.getElementById(id);uniq(key).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;s.appendChild(o)})}
 fillSelect('model','model');fillSelect('modelYear','modelYear');fillSelect('city','city');fillSelect('pay','pay');
 function group(rows,key){const m={};rows.forEach(r=>m[r[key]]=(m[r[key]]||0)+1);return Object.entries(m).sort((a,b)=>b[1]-a[1])}
+function revenueByCity(rows){const totals={};rows.forEach(r=>totals[r.city]=(totals[r.city]||0)+r.price);return Object.entries(totals).sort((a,b)=>b[1]-a[1]).slice(0,10)}
+function averageTicketByModel(rows){const totals={};rows.forEach(r=>{if(!totals[r.model])totals[r.model]={sum:0,count:0};totals[r.model].sum+=r.price;totals[r.model].count++});return Object.entries(totals).map(([model,v])=>[model,v.sum/v.count]).sort((a,b)=>b[1]-a[1]).slice(0,8)}
+function ticketChart(items){const el=document.getElementById('ticketByModel');if(!items.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}const max=Math.max(...items.map(x=>x[1]));const tickMax=Math.ceil(max/4/1000)*1000||1;const compact=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:0}).format(n);const ticks=[4,3,2,1,0].map(v=>compact(tickMax*v));el.innerHTML=`<div class="ticket-chart"><div class="ticket-yaxis">${ticks.map(t=>`<span>${t}</span>`).join('')}</div><div class="ticket-plot"><div class="ticket-columns">${items.map(([model,value])=>`<div class="ticket-col" title="${model}: ${money(value)}"><span class="ticket-value">${compact(value)}</span><div class="ticket-bar" style="height:${Math.max(1,value/(tickMax*4)*100)}%"></div><span class="ticket-label">${model}</span></div>`).join('')}</div></div></div>`}
+function paymentDonut(rows){const el=document.getElementById('payments');const counts=group(rows,'pay');if(!counts.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}const total=counts.reduce((s,x)=>s+x[1],0);const palette=['#d5001c','#aeb2b7','#777d84','#555b62','#e06a7b','#92979d','#41464d','#bd273d','#c5c8cb','#6c2531'];let offset=0;const segments=counts.map(([name,n],i)=>{const start=offset;offset+=n/total*100;return `${palette[i%palette.length]} ${start}% ${offset}%`});el.innerHTML=`<div class="payment-layout"><div class="donut-wrap"><div class="payment-donut" style="background:conic-gradient(${segments.join(',')})"><div class="donut-center"><strong>${fmtN(total)}</strong><span>TRANSAÇÕES</span></div></div></div><div class="payment-legend">${counts.map(([name,n],i)=>`<div class="payment-legend-item ${i===0?'leader':''}"><span class="payment-swatch" style="background:${palette[i%palette.length]}"></span><span class="payment-name" title="${name}">${name}</span><span class="payment-percent">${(n/total*100).toLocaleString('pt-BR',{maximumFractionDigits:1})}%</span></div>`).join('')}</div></div>`}
+function revenueBars(id,items){const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}const max=items[0][1];const compact=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(n);el.innerHTML=items.map(([city,value],i)=>`<div class="barrow revenue-row"><div class="barlabel" title="${city}">${city}</div><div class="track"><div class="fill ${i===0?'red':''}" style="width:${Math.max(2,value/max*100)}%"></div></div><div class="barval" title="${money(value)}">${compact(value)}</div></div>`).join('')}
 function bars(id,items,red=false,limit=8){const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="empty">Sem dados para os filtros selecionados.</div>';return}const max=items[0][1];el.innerHTML=items.slice(0,limit).map(([k,v],i)=>`<div class="barrow"><div class="barlabel" title="${k}">${k}</div><div class="track"><div class="fill ${red&&i===0?'red':''}" style="width:${Math.max(2,v/max*100)}%"></div></div><div class="barval">${v}</div></div>`).join('')}
 function render(){const f={model:document.getElementById('model').value,modelYear:document.getElementById('modelYear').value,city:document.getElementById('city').value,pay:document.getElementById('pay').value};
 const rows=DATA.filter(d=>(!f.model||d.model===f.model)&&(!f.modelYear||String(d.modelYear)===f.modelYear)&&(!f.city||d.city===f.city)&&(!f.pay||d.pay===f.pay));
 const revenue=rows.reduce((s,r)=>s+r.price,0);document.getElementById('units').textContent=fmtN(rows.length);document.getElementById('revenue').textContent=money(revenue);document.getElementById('ticket').textContent=rows.length?money(revenue/rows.length):'—';
+const cityRevenue=revenueByCity(rows);document.getElementById('leaderCity').textContent=cityRevenue.length?cityRevenue[0][0]:'—';document.getElementById('leaderCityRevenue').textContent=cityRevenue.length?money(cityRevenue[0][1]):'Sem dados no recorte';revenueBars('cityRevenue',cityRevenue);
 const ys=group(rows,'modelYear').sort((a,b)=>b[1]-a[1]);document.getElementById('leaderYear').textContent=ys.length?ys[0][0]:'—';document.getElementById('leaderYearSub').textContent=ys.length?`${fmtN(ys[0][1])} unidades · ${Math.round(ys[0][1]/rows.length*100)}% do recorte`:'Sem dados';
-bars('models',group(rows,'model'),true);bars('years',ys);bars('cities',group(rows,'city'),true);bars('payments',group(rows,'pay'));
+bars('models',group(rows,'model'),true);ticketChart(averageTicketByModel(rows));bars('cities',group(rows,'city'),true);paymentDonut(rows);
 const byCity={};rows.forEach(r=>{byCity[r.city]??={total:0,models:{}};byCity[r.city].total++;byCity[r.city].models[r.model]=(byCity[r.city].models[r.model]||0)+1});
 const cityRows=Object.entries(byCity).map(([city,v])=>{const top=Object.entries(v.models).sort((a,b)=>b[1]-a[1])[0];return {city,total:v.total,model:top[0],n:top[1],share:top[1]/v.total}}).sort((a,b)=>b.total-a.total||b.n-a.n).slice(0,10);
 document.getElementById('cityTable').innerHTML=cityRows.length?cityRows.map((r,i)=>`<tr><td class="rank">0${i+1}</td><td>${r.city}</td><td>${r.model}</td><td>${r.n}</td><td>${Math.round(r.share*100)}%</td></tr>`).join(''):'<tr><td colspan="5">Sem dados para os filtros selecionados.</td></tr>';
