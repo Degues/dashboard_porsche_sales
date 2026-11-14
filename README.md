@@ -1,5 +1,6 @@
 # dashboard_porsche_sales
 Sobre o Projeto
+
 Este projeto consiste na criação de uma dashboard de vendas da Porsche utilizando HTML, CSS e JavaScript, com foco em análise comercial e apoio à tomada de decisão.
 
 A solução foi desenvolvida utilizando Inteligência Artificial Generativa por meio do ChatGPT e do recurso Canvas, permitindo a criação de uma dashboard interativa com filtros, KPIs e visualizações executivas inspiradas na identidade visual da Porsche.
