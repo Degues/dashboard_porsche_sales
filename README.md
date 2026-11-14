@@ -5,16 +5,23 @@ Desenvolvido para analisar o desempenho de vendas da Porsche, permitindo visuali
 🛠️ Tecnologias utilizadas
 
 HTML
+
 CSS
+
 JavaScript
+
 Excel
 
 🔎 Funcionalidades
 
 Filtros por modelo, Model Year, cidade e método de pagamento.
+
 Indicadores de desempenho (KPIs).
+
 Análise de vendas por modelo e localização.
+
 Identificação dos modelos mais vendidos.
+
 Análise da evolução das vendas por estado.
 
 🎯 Objetivo
